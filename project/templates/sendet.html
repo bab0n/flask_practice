@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <div align="center">
+            {% if state %}
+            <h2>{{ state }}</h2>
+            {% else %}
+            <h2>Как ты сюда попал?</h2>
+            {% endif %}
+            <form action="/" method="GET">
+                <input type="submit" value="Вернуться" />
+            </form>
+        </div>
+    </body>
+</html>
