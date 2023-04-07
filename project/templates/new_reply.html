@@ -1,0 +1,24 @@
+{% extends "lk.html" %} {% block content %}
+<h1 class="title">Создание новой заявки</h1>
+<div align="center" class="box">
+    <form action="/f" enctype=multipart/form-data method="POST">
+        <p><input class="input " name="text" type="text" value="" placeholder="Текст заявки" /></p>
+        <p>ᅟ</p>
+        <div class="file">
+            <label class="file-label">
+              <input class="file-input" type="file" name="file">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                Выберите файл
+                </span>
+              </span>
+            </label>
+        </div>
+        <p>ᅟ</p>
+        <input class="button is-block is-info" type="submit" value="Отправить заявку" />
+    </form>
+</div>
+{% endblock %}

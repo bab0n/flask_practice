@@ -1,14 +1,12 @@
-<html>
-    <body>
-        <div align="center">
-            {% if state %}
-            <h2>{{ state }}</h2>
-            {% else %}
-            <h2>Как ты сюда попал?</h2>
-            {% endif %}
-            <form action="/" method="GET">
-                <input type="submit" value="Вернуться" />
-            </form>
-        </div>
-    </body>
-</html>
+{% extends "lk.html" %} {% block content %}
+<div align="center">
+    {% if state %}
+    <h1 class="title">{{ state }}</h1>
+    {% else %}
+    <h1 class="title">Нет информации о заявке</h1>
+    {% endif %}
+    <form action="/lk">
+        <input class="button is-block is-info" type="submit" value="Вернуться" />
+    </form>
+</div>
+{% endblock %}

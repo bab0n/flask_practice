@@ -1,0 +1,31 @@
+{% extends "lk.html" %} {% block content %}
+<h1 class="title">Ваши заявки</h1>
+<div align="center" class="box">
+    <table class="table is-hoverable" align="center">
+        <thead>
+            <tr>
+                <th><abbr title="Порядковый номер в системе">ID</abbr></th>
+                <th>Текст</th>
+                <th>Статус</th>
+                <th><abbr title="ID сотрудгника ответственного за заяку">Исполнитель</abbr></th>
+                <th>История</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if replys %} {% for repl in replys %}
+            <tr>
+                <th>{{ repl.id }}</th>
+                <td>{{ repl.content }}</td>
+                <td>{{ repl.status }}</td>
+                <td>{{ repl.doer }}</td>
+                <td>
+                    <a href="{{ url_for('auth.about_reply', number=repl.id) }}"
+                        ><i class="fa-solid fa-clock-rotate-left"></i
+                    ></a>
+                </td>
+            </tr>
+            {% endfor %} {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

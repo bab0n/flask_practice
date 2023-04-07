@@ -1,0 +1,36 @@
+{% extends "admin/adm.html" %} {% block content %}
+<h1 class="title">Изменение заявки</h1>
+<div align="center" class="box">
+    {% if replys %}
+    <table class="table is-hoverable" align="center">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Текст</th>
+                <th>Статус</th>
+                <th>Исполнитель</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for repl in replys %}
+            <tr>
+                <th>{{ repl.id }}</th>
+                <td>{{ repl.content }}</td>
+                <td>{{ repl.status }}</td>
+                <td>{{ repl.doer }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('auth.edit_status', number=repl.id) }}">
+        <button class="button">Статус</button>
+    </a>
+    <a href="{{ url_for('auth.about_reply, number=repl.id') }}">
+        <button class="button">Исполнитель</button>
+    </a>
+    <a href="{{ url_for('auth.about_reply', number=repl.id) }}">
+        <button class="button">Удалить</button>
+    </a>
+    {% endif %}
+</div>
+{% endblock %}

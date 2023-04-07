@@ -1,0 +1,59 @@
+{% extends "base.html" %} {% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Регистрация</h3>
+    <div class="box">
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <div class="notification is-danger">
+            {% for mes in messages[0].split('\n') %}
+            <p>{{ mes }}</p>
+            {% endfor %}
+        </div>
+        {% endif %} {% endwith %}
+        <form method="POST" action="/signup">
+            <div class="field">
+                <div class="select">
+                    <select name="status" onchange="showSingleDiv(this.value)">
+                        <option value="#user" selected="selected">Пользователь</option>
+                        <option value="#admin">Администратор</option>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input
+                        class="input is-large"
+                        type="text"
+                        name="login"
+                        placeholder="Логин"
+                        autofocus=""
+                    />
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input
+                        class="input is-large"
+                        type="password"
+                        name="password"
+                        placeholder="Пароль"
+                    />
+                </div>
+            </div>
+            <div id="admin" class="single">
+                <div class="field">
+                    <div class="control">
+                        <input
+                            class="input is-large"
+                            type="password"
+                            name="superpass"
+                            placeholder="Админ-пароль"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <button class="button is-block is-info is-large is-fullwidth">Зарегестрировать</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

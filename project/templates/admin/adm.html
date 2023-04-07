@@ -4,15 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Flask Auth Example</title>
-        <style>
-            .single {
-                display: none;
-            }
-            .single.active {
-                display: block;
-            }
-        </style>
+        <title>Админ панель</title>
         <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
     </head>
@@ -24,11 +16,11 @@
                     <div class="container">
                         <div id="navbarMenuHeroA" class="navbar-menu">
                             <div class="navbar-end">
-                                <a href="{{ url_for('main.index') }}" class="navbar-item">
-                                    <i class="fas fa-light fa-house"></i>
+                                <a href="{{ url_for('auth.lk') }}" class="navbar-item">
+                                    ЗАЯВКИ <i class="fa-solid fa-list"></i>
                                 </a>
-                                <a href="{{ url_for('auth.login') }}" class="navbar-item">
-                                    Войти
+                                <a href="{{ url_for('auth.logout') }}" class="navbar-item">
+                                    ВЫХОД <i class="fa-regular fa-share-from-square"></i>
                                 </a>
                             </div>
                         </div>
@@ -40,15 +32,6 @@
                 <div class="container has-text-centered">{% block content %} {% endblock %}</div>
             </div>
         </section>
-        <script>
-            function showSingleDiv(selector) {
-                const prevBlockEl = document.querySelector(".single.active"),
-                    currBlockEl = document.querySelector(selector);
-                if (!currBlockEl || prevBlockEl === currBlockEl) return;
-                prevBlockEl && prevBlockEl.classList.remove("active");
-                currBlockEl.classList.add("active");
-            }
-        </script>
         <script src="https://kit.fontawesome.com/ff547e332a.js" crossorigin="anonymous"></script>
     </body>
 </html>
