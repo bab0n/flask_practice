@@ -96,12 +96,19 @@ def login_post():
 
 
 @auth.route('/signup')
+@login_required
 def signup():
-    return render_template('signup.html')
+    if current_user.status == '#user':
+        return redirect(url_for('auth.lk', ext='lk.html'))
+    else:
+        return render_template('signup.html', ext='admin/adm.html')
 
 
 @auth.route('/signup', methods=['POST'])
+@login_required
 def signup_post():
+    if current_user.status == '#user':
+        return redirect(url_for('auth.lk', ext='lk.html'))
     status = request.form.get('status')
     login = request.form.get('login')
     password = request.form.get('password')
@@ -123,7 +130,7 @@ def signup_post():
     db.session.commit()
 
     flash(f'Пользователь успешно создан!\nID: {new_user.id}\nЛогин: {login}\nПароль: {password}')
-    return render_template('signup.html')
+    return render_template('signup.html',  ext='admin/adm.html')
 
 
 @auth.route('/logout')
