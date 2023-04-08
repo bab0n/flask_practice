@@ -1,14 +1,16 @@
 {% extends "admin/adm.html" %} {% block content %}
-<h1 class="title">Изменение статуса</h1>
+<h1 class="title">Изменение сотрудника</h1>
 <div align="center" class="box">
-    <form method="POST" action="{{ url_for('auth.change_status', number=repl_id) }}">
+    <form method="POST" action="{{ url_for('auth.change_worker', number=repl_id) }}">
         <div class="field">
-            <div class="select is-large">
-                <select name="state">
-                    <option value="process">В процессе</option>
-                    <option value="checking">Проверка</option>
-                    <option value="closed">Закрыта</option>
-                </select>
+            <div class="control">
+                <input
+                    class="input is-large"
+                    type="text"
+                    name="worker_id"
+                    placeholder="ID сотрудника"
+                    autofocus=""
+                />
             </div>
         </div>
         <div class="field">

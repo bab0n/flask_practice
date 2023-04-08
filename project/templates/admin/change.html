@@ -22,15 +22,16 @@
             {% endfor %}
         </tbody>
     </table>
+    {% for repl in replys %}
     <a href="{{ url_for('auth.edit_status', number=repl.id) }}">
         <button class="button">Статус</button>
     </a>
-    <a href="{{ url_for('auth.about_reply, number=repl.id') }}">
+    <a href="{{ url_for('auth.edit_worker', number=repl.id) }}">
         <button class="button">Исполнитель</button>
     </a>
-    <a href="{{ url_for('auth.about_reply', number=repl.id) }}">
+    <a href="{{ url_for('auth.del_reply', number=repl.id) }}">
         <button class="button">Удалить</button>
     </a>
-    {% endif %}
+    {% endfor %} {% endif %}
 </div>
 {% endblock %}

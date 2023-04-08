@@ -1,0 +1,8 @@
+{% extends "admin/adm.html" %} {% block content %}
+<h1 class="title">Изменение заявки №{{ repl_id }}</h1>
+
+<form method="POST" action="{{ url_for('auth.reply_delete', number=repl_id) }}">
+    <button class="button is-danger is-large">Удалить</button>
+</form>
+
+{% endblock %}
