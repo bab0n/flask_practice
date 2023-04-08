@@ -8,11 +8,6 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def index():
-    if len(current_user.__dict__) == 4:
+    if len(current_user.__dict__) == 5:
         return redirect(url_for('auth.lk'))
     return render_template('index.html')
-
-
-@main.route('/profile')
-def profile():
-    return 'Profile'
